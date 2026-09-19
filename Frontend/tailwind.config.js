@@ -5,38 +5,30 @@ export default {
     extend: {
       colors: {
         ink: {
-          950: '#fffaf3',
-          900: '#fff7ed',
-          850: '#fffdf8',
-          800: '#ffffff',
-          700: '#f5eadf',
-          600: '#e2d3c4',
-          500: '#cbb8a6',
+          950: '#090d12',
+          900: '#10161d',
+          850: '#151d26',
+          800: '#1b2530',
+          700: '#2a3744',
+          600: '#3b4b5a',
+          500: '#536575',
         },
         signal: {
-          300: '#ffd3a6',
-          400: '#ffad70',
-          500: '#f47721',
-          600: '#dc5b0b',
+          300: '#b5fff2',
+          400: '#6ee7d8',
+          500: '#2dd4bf',
+          600: '#14b8a6',
         },
-        live: '#e5484d',
-        amber: { DEFAULT: '#c87900' },
-        ok: '#0b9b7a',
-        slate: {
-          50: '#182235',
-          100: '#25334a',
-          200: '#34445c',
-          300: '#4b5d75',
-          400: '#667890',
-          500: '#8492a4',
-        },
+        live: '#fb7185',
+        amber: { DEFAULT: '#fbbf24' },
+        ok: '#4ade80',
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        panel: '0 1px 0 0 rgba(255,255,255,0.9) inset, 0 14px 34px -22px rgba(100,70,40,0.28)',
+        panel: '0 1px 0 0 rgba(255,255,255,0.05) inset, 0 12px 32px -18px rgba(0,0,0,0.7)',
       },
       keyframes: {
         'live-ring': {

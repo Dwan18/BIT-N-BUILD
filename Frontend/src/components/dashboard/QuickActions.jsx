@@ -4,13 +4,13 @@ import Card from '../ui/Card';
 import { useNotifications } from '../../context/NotificationContext';
 
 const ACTIONS = [
-  { id: 'create-event', label: 'Create event', hint: 'Set up dates, venue and stages', icon: CalendarPlus, to: '/events', message: 'Opening the event builder', tone: 'text-signal-400 bg-signal-500/15' },
-  { id: 'add-speaker', label: 'Add speaker', hint: 'Invite and assign to sessions', icon: UserPlus, to: '/speakers', message: 'Opening the speaker form', tone: 'text-ok bg-ok/15' },
-  { id: 'manage-agenda', label: 'Manage agenda', hint: 'Reorder and reschedule sessions', icon: ListChecks, to: '/agenda', message: 'Opening the agenda editor', tone: 'text-amber bg-amber/15' },
-  { id: 'start-live', label: 'Start live event', hint: 'Go on air and open controls', icon: Play, to: '/live-control', message: 'Live control is ready', tone: 'text-live bg-live/15' },
+  { id: 'create-event', roles: ['organizer'], label: 'Create event', hint: 'Set up dates, venue and stages', icon: CalendarPlus, to: '/events', message: 'Opening the event builder', tone: 'text-signal-400 bg-signal-500/15' },
+  { id: 'add-speaker', roles: ['organizer'], label: 'Add speaker', hint: 'Invite and assign to sessions', icon: UserPlus, to: '/speakers', message: 'Opening the speaker form', tone: 'text-ok bg-ok/15' },
+  { id: 'manage-agenda', roles: ['organizer', 'stage-manager', 'speaker'], label: 'Manage agenda', hint: 'Reorder and reschedule sessions', icon: ListChecks, to: '/agenda', message: 'Opening the agenda editor', tone: 'text-amber bg-amber/15' },
+  { id: 'start-live', roles: ['organizer', 'stage-manager'], label: 'Start live event', hint: 'Go on air and open controls', icon: Play, to: '/live-control', message: 'Live control is ready', tone: 'text-live bg-live/15' },
 ];
 
-export default function QuickActions() {
+export default function QuickActions({ designation }) {
   const navigate = useNavigate();
   const { toast } = useNotifications();
 
@@ -23,7 +23,7 @@ export default function QuickActions() {
   return (
     <Card title="Quick actions" bodyClassName="p-3">
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-1">
-        {ACTIONS.map((a) => (
+        {ACTIONS.filter((action) => action.roles.includes(designation)).map((a) => (
           <button
             key={a.id}
             onClick={() => run(a)}
