@@ -37,14 +37,6 @@ app.use((req, res, next) => {
 // Seed data
 seedTechFest2026();
 
-// Routes
-app.use('/api', authRouter);
-app.use('/api', authenticate, eventsRouter);
-app.use('/api', authenticate, activitiesRouter);
-app.use('/api', authenticate, peopleRouter);
-app.use('/api', authenticate, scriptsRouter);
-app.use('/api', authenticate, liveRouter);
-
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({
@@ -53,6 +45,15 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// Routes
+app.use('/api', authRouter);
+app.use('/api', authenticate, eventsRouter);
+app.use('/api', authenticate, activitiesRouter);
+app.use('/api', authenticate, peopleRouter);
+app.use('/api', authenticate, scriptsRouter);
+app.use('/api', authenticate, liveRouter);
+
 
 // Global error handler
 app.use((err, req, res, next) => {
