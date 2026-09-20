@@ -12,6 +12,9 @@ Frontend/dist/
 .env.local
 backend/.env
 
+# Windows batch launchers (kept locally, ignored from git)
+*.bat
+
 # Temporary files
 *.tmp*
 .DS_Store
