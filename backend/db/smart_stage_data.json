@@ -196,18 +196,6 @@
       "topic": "Welcome Address",
       "created_at": "2026-09-20T07:04:32.502Z",
       "updated_at": "2026-09-20T07:04:32.502Z"
-    },
-    {
-      "id": "per_2ee9d035",
-      "event_id": "evt_techfest2026",
-      "role_type": "JURY",
-      "name": "dhwani",
-      "designation": "computer science eng",
-      "organization": "",
-      "bio": null,
-      "topic": "",
-      "created_at": "2026-09-20T07:22:09.727Z",
-      "updated_at": "2026-09-20T07:22:09.727Z"
     }
   ],
   "event_users": [

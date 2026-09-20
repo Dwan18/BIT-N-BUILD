@@ -2,10 +2,18 @@
   "name": "smart-stage",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "SMART_STAGE: Real-Time Event Management + Live Stage Flow + Smart Anchor Assistant",
   "scripts": {
+    "build": "cd Frontend && npm install && npm run build",
+    "start": "node backend/server.js",
     "start:backend": "node backend/server.js",
     "start:frontend": "cd Frontend && npm run dev",
     "build:frontend": "cd Frontend && npm run build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }

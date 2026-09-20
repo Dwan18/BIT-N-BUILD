@@ -5,7 +5,10 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_FILE = path.join(__dirname, 'smart_stage_data.json');
+const BUNDLED_DATA_FILE = path.join(__dirname, 'smart_stage_data.json');
+const DATA_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'smart_stage_data.json')
+  : BUNDLED_DATA_FILE;
 
 class Store {
   constructor() {
@@ -22,14 +25,16 @@ class Store {
 
   load() {
     try {
-      if (fs.existsSync(DATA_FILE)) {
-        const raw = fs.readFileSync(DATA_FILE, 'utf-8');
+      const targetFile = fs.existsSync(DATA_FILE) ? DATA_FILE : (fs.existsSync(BUNDLED_DATA_FILE) ? BUNDLED_DATA_FILE : null);
+      if (targetFile) {
+        const raw = fs.readFileSync(targetFile, 'utf-8');
         this.data = JSON.parse(raw);
       }
     } catch (err) {
       console.error('[Store] Error reading data file, using fresh store:', err.message);
     }
   }
+
 
   save() {
     try {
