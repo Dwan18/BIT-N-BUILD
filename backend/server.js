@@ -64,16 +64,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-if (!process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`\n======================================================`);
-    console.log(`🚀 SMART_STAGE Backend is running on port ${PORT}`);
-    console.log(`📡 Base API: http://localhost:${PORT}/api`);
-    console.log(`⚡ Pre-seeded Demo Event Code: TF2026 (PIN: 1234)`);
-    console.log(`======================================================\n`);
-  });
-}
-
-export default app;
-export { app };
-
+app.listen(PORT, () => {
+  console.log(`\n======================================================`);
+  console.log(`🚀 SMART_STAGE Backend is running on port ${PORT}`);
+  console.log(`📡 Base API: http://localhost:${PORT}/api`);
+  console.log(`⚡ Pre-seeded Demo Event Code: TF2026 (PIN: 1234)`);
+  console.log(`======================================================\n`);
+});
