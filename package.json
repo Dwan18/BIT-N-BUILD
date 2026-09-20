@@ -1,0 +1,11 @@
+{
+  "name": "smart-stage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMART_STAGE: Real-Time Event Management + Live Stage Flow + Smart Anchor Assistant",
+  "scripts": {
+    "start:backend": "node backend/server.js",
+    "start:frontend": "cd Frontend && npm run dev",
+    "build:frontend": "cd Frontend && npm run build"
+  }
+}
